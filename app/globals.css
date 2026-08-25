@@ -1,498 +1,118 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html,
-body,
-:root {
-  height: 100%;
-  scroll-behavior: smooth;
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-ink: #050508;
+  --color-panel: #0b0b12;
+  --color-edge: rgba(255, 255, 255, 0.08);
 }
 
-/* Hide scrollbars for slider */
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Safari and Chrome */
+html {
+  color-scheme: dark;
 }
 
-/* Enhanced visual effects for cards */
-@keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.2;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(1.05);
-  }
+body {
+  background-color: var(--color-ink);
+  color: #f4f4f5;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-@keyframes float-gentle {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-2px);
-  }
+/* Subtle violet radial glows in page corners */
+.page-glow {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(139, 92, 246, 0.14), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(99, 102, 241, 0.1), transparent 55%),
+    radial-gradient(1000px 700px at 50% 110%, rgba(217, 70, 239, 0.07), transparent 60%);
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+@utility text-gradient {
+  background-image: linear-gradient(90deg, #e879f9, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.glow-card:hover .glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
+@utility btn-gradient {
+  background-image: linear-gradient(90deg, #d946ef, #a855f7, #6366f1);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+.btn-gradient:active {
+  transform: scale(0.98);
+}
+.btn-gradient:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
-.icon-float {
-  animation: float-gentle 3s ease-in-out infinite;
+@utility card-panel {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
 }
 
-.shimmer-effect {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: #d4d4d8;
+  white-space: nowrap;
 }
 
-@layer base {
-  :root {
-    --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-heading: "Space Grotesk", var(--font-sans);
-    --font-mono: "JetBrains Mono", monospace;
+@utility section-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+  font-weight: 600;
+}
 
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-
-    --muted: 210 40% 96%;
-    --muted-foreground: 0 0% 0%;
-
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-
-    --success: 142.1 70.6% 45.3%;
-    --success-foreground: 144.9 80.4% 10%;
-
-    --warning: 48 96.5% 53.9%;
-    --warning-foreground: 38 92.1% 13.7%;
-
-    --destructive: 346.8 77.2% 49.8%;
-    --destructive-foreground: 355.7 100% 97.3%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 263.4 70% 50.4%;
-
-    --radius: 0.75rem;
+.masonry {
+  columns: 2;
+  column-gap: 1rem;
+}
+@media (min-width: 768px) {
+  .masonry {
+    columns: 3;
   }
 }
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: var(--font-sans);
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-heading);
-  }
-  code,
-  pre {
-    font-family: var(--font-mono);
+@media (min-width: 1280px) {
+  .masonry {
+    columns: 4;
   }
 }
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
 
-@layer components {
-  .card-hover {
-    @apply transition-all duration-300 ease-out hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] hover:shadow-primary/10;
+::selection {
+  background: rgba(168, 85, 247, 0.45);
+}
+
+@keyframes develop {
+  from {
+    filter: blur(14px) saturate(0.7);
+    opacity: 0.6;
   }
-
-  .glass-effect {
-    @apply bg-background/80 backdrop-blur-sm border border-border/50 transition-colors duration-300;
-  }
-
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-violet-500 to-blue-500 animate-gradient;
-  }
-
-  .hover-lift {
-    @apply transition-transform duration-300 ease-out hover:-translate-y-1;
-  }
-
-  .hover-glow {
-    @apply transition-all duration-300 hover:shadow-md hover:shadow-primary/20;
-  }
-
-  .button-press {
-    @apply active:scale-95 transition-transform duration-150;
-  }
-
-  .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-shadow duration-300;
+  to {
+    filter: blur(0) saturate(1);
+    opacity: 1;
   }
 }
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@layer utilities {
-  .animate-gradient {
-    background-size: 200% auto;
-    animation: gradient 8s linear infinite;
-  }
-}
-
-@import url("../assets/css/01-global.css");
-@import url("../assets/css/module-css/header.css");
-@import url("../assets/css/module-css/footer.css");
-@import url("../assets/css/module-css/feature.css");
-@import url("../assets/css/module-css/solutions.css");
-@import url("../assets/css/module-css/testimonial.css");
-@import url("../assets/css/module-css/faq.css");
-@import url("../assets/css/module-css/free-trail.css");
-@import url("../assets/css/module-css/contact.css");
-@import url("../assets/css/module-css/page-title.css");
-@import url("../assets/css/module-css/contact.css");
-@import url("../assets/css/module-css/career.css");
-
-@import url("../assets/css/04-animate.css");
-@import url("../assets/css/06-custom-animate.css");
-@import url("../assets/css/08-font-awesome.css");
-@import url("../assets/css/09-icomoon.css");
-@import url("../assets/fonts/reey-font/stylesheet.css");
-
-@import url("../assets/css/responsive.css");
-
-/*** 
-====================================================================
-	
-====================================================================
-***/
-
-/* Sticy Header */
-.want-sticky-header .main-header.fixed-header {
-  position: relative !important;
-  display: none;
-}
-
-/* Box Layout */
-.box-layout .page-wrapper {
-  max-width: 1390px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 15px;
-  overflow: hidden;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-}
-
-.box-layout:before {
-  position: fixed;
-  content: "";
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  display: block;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.box-layout .slider-one_social-icons {
-  display: none;
-}
-
-.box-layout .main-header-two__inner {
-  margin: 0 0px;
-}
-
-.grecaptcha-badge {
-  visibility: hidden;
-}
-
-.sidebar .cl-userButtonBox {
-  display: flex;
-  flex-flow: row-reverse;
-  gap: 12px;
-}
-
-.sidebar .cl-userButtonOuterIdentifier {
-  font-size: 14px;
-  font-weight: 500;
-  @apply text-zinc-400;
-}
-
-.sidebar .sidebarClerkButton:hover .cl-userButtonOuterIdentifier {
-  color: #fff; /* Цвет при наведении */
-}
-
-.sidebar .cl-rootBox {
-  width: 100%;
-}
-
-.sidebar .cl-userButtonTrigger {
-  padding: 0px 8px;
-}
-
-.sidebar .cl-userButtonBox {
-  padding: 5px 0;
-}
-
-.generate {
-  font-family: var(--font-mono);
-  animation: pulse 2s infinite;
-  background: linear-gradient(to right, #6366f1, #8b5cf6, #d946ef);
-  background-size: 200% auto;
-}
-
-.generate:hover {
-  animation: none;
-  background-position: right center;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: white !important;
-}
-
-/* Новые стили для изменения оформления дашборда */
-.dark {
-  --glow-strength: 0.15;
-  --shadow-strength: 0.2;
-}
-
-/* Эффект неон для карточек */
-.dark .glow-card {
-  position: relative;
-  border: 1px solid rgba(79, 70, 229, 0.2);
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
-}
-
-.dark .glow-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(99, 102, 241, 0.15),
-    transparent 40%
-  );
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: -1;
-}
-
-.dark .glow-card:hover {
-  border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: 0 0 20px rgba(99, 102, 241, var(--glow-strength)),
-    inset 0 0 20px rgba(99, 102, 241, var(--shadow-strength));
-}
-
-.dark .glow-card:hover::before {
-  opacity: 1;
-}
-
-/* Стилизация scrollbar для темной темы */
-.dark ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: rgba(17, 24, 39, 0.7);
-  border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.4);
-  border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(129, 140, 248, 0.6);
-}
-
-/* Улучшение эффектов фокуса для темной темы */
-.dark .focus-indigo:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
-}
-
-/* Новая анимация для иконок */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.dark .icon-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Новые стили для кнопок в темной теме */
-.dark .btn-glow {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.dark .btn-glow::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to bottom right,
-    rgba(99, 102, 241, 0),
-    rgba(99, 102, 241, 0.1),
-    rgba(99, 102, 241, 0)
-  );
-  transform: rotate(30deg);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.dark .btn-glow:hover::after {
-  opacity: 1;
-  animation: shine 1.5s ease-in-out;
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%) rotate(30deg);
-  }
-  100% {
-    transform: translateX(100%) rotate(30deg);
-  }
-}
-
-/* Explicit styles for profession tools */
-.video-script-icon {
-  background-color: rgba(124, 58, 237, 0.1) !important; /* violet-600/10 */
-}
-
-.video-creation-icon {
-  background-color: rgba(147, 51, 234, 0.1) !important; /* purple-600/10 */
-}
-
-/* Make sure the input has transparent background even on autofill */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: white !important;
-  box-shadow: 0 0 0 30px transparent inset !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-/* Dashboard Clerk Avatar - Remove all hover/focus effects */
-.dashboard-clerk-avatar,
-.dashboard-clerk-avatar .cl-userButton-root,
-.dashboard-clerk-avatar .cl-userButtonTrigger,
-.dashboard-clerk-avatar .cl-avatarBox,
-.dashboard-clerk-avatar .cl-avatarImage {
-  box-shadow: none !important;
-  outline: none !important;
-  background: transparent !important;
-  border: none !important;
-  transition: none !important;
-}
-
-.dashboard-clerk-avatar:hover,
-.dashboard-clerk-avatar .cl-userButton-root:hover,
-.dashboard-clerk-avatar .cl-userButtonTrigger:hover,
-.dashboard-clerk-avatar .cl-avatarBox:hover,
-.dashboard-clerk-avatar .cl-avatarImage:hover {
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-  opacity: 1 !important;
-  border: none !important;
-}
-
-.dashboard-clerk-avatar:focus,
-.dashboard-clerk-avatar .cl-userButton-root:focus,
-.dashboard-clerk-avatar .cl-userButtonTrigger:focus,
-.dashboard-clerk-avatar .cl-avatarBox:focus,
-.dashboard-clerk-avatar .cl-avatarImage:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  ring: 0 !important;
-}
-
-.dashboard-clerk-avatar:active,
-.dashboard-clerk-avatar .cl-userButton-root:active,
-.dashboard-clerk-avatar .cl-userButtonTrigger:active,
-.dashboard-clerk-avatar .cl-avatarBox:active,
-.dashboard-clerk-avatar .cl-avatarImage:active {
-  background: transparent !important;
-  box-shadow: none !important;
-  transform: none !important;
-  border: none !important;
-}
-
-.dashboard-clerk-avatar .cl-userButtonTrigger:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
+.frame-develop {
+  animation: develop 700ms ease-out;
 }

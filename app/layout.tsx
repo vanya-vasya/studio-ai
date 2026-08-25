@@ -1,98 +1,53 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter, Space_Grotesk } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { dark } from "@clerk/themes";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
+import "./globals.css";
 
-import { ModalProvider } from "@/components/modal-provider";
-import { ToasterProvider } from "@/components/toaster-provider";
-
-import NextTopLoader from "nextjs-toploader";
-
-import { GoogleAnalytics } from "@next/third-parties/google";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-heading",
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.zinvero.com"),
-  title: "Zinvero",
-  description: "AI-powered creative tools for everyone",
-  manifest: "/site.webmanifest",
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/logos/zinvero-icon.png",
-      },
-    ],
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
+  ),
+  title: {
+    default: "Framique — AI photo studio in one upload",
+    template: "%s · Framique",
   },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Zinvero",
-  },
+  description:
+    "23 AI tools on a single engine. Headshots, retouching, restored photos, product shots, interiors, voiceovers — pick a tool, drop in a picture and watch the result develop.",
   openGraph: {
+    siteName: "Framique",
     type: "website",
-    locale: "en_US",
-    url: "https://www.zinvero.com",
-    siteName: "Zinvero",
-    title: "Zinvero - AI-powered creative tools",
-    description: "AI-powered creative tools for everyone",
-    images: [
-      {
-        url: "/logos/zinvero-icon.png",
-        width: 512,
-        height: 512,
-        alt: "Zinvero",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary",
-    title: "Zinvero - AI-powered creative tools",
-    description: "AI-powered creative tools for everyone",
-    images: ["/logos/zinvero-icon.png"],
+    images: ["/covers/preset-golden-hour.webp"],
   },
 };
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-      signInUrl="/sign-in"
-      signUpUrl="/sign-up"
-      afterSignInUrl="/dashboard"
-      afterSignUpUrl="/dashboard"
+      appearance={{
+        theme: dark,
+        variables: {
+          colorPrimary: "#a855f7",
+          colorBackground: "#0b0b12",
+          colorInput: "rgba(255,255,255,0.05)",
+          borderRadius: "0.75rem",
+        },
+      }}
+      signInUrl="/login"
+      signUpUrl="/signup"
     >
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" className="dark">
         <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            inter.variable,
-            spaceGrotesk.variable
-          )}
+          className={`${geistSans.variable} ${geistMono.variable} page-glow min-h-screen font-sans`}
         >
-          <GoogleAnalytics gaId="G-DYY23NK5V1" />
-          <ModalProvider />
-          <ToasterProvider />
-          <NextTopLoader color="#00b8d4" showSpinner={false} />
           {children}
+          <Toaster theme="dark" position="bottom-right" />
         </body>
       </html>
     </ClerkProvider>
