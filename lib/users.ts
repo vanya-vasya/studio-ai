@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { currentUser } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import { creditLedger, db, users } from "@/lib/db";
@@ -20,10 +21,13 @@ export const provisionUser = async (params: {
   email: string;
   name: string | null;
 }): Promise<AppUser> => {
+  // No conflict target: concurrent renders (layout + page) may race on the
+  // same insert, and the loser can trip the email unique index instead of
+  // the primary key. Any conflict means "row already exists" here.
   const inserted = await db
     .insert(users)
     .values({ id: params.id, email: params.email, name: params.name })
-    .onConflictDoNothing({ target: users.id })
+    .onConflictDoNothing()
     .returning();
 
   if (inserted.length > 0) {
@@ -41,8 +45,11 @@ export const provisionUser = async (params: {
   return existing;
 };
 
-/** Resolve the signed-in Clerk user and make sure a DB row exists. */
-export const ensureUser = async (): Promise<AppUser | null> => {
+/**
+ * Resolve the signed-in Clerk user and make sure a DB row exists.
+ * Wrapped in React cache() so layout and page share one call per request.
+ */
+export const ensureUser = cache(async (): Promise<AppUser | null> => {
   const clerkUser = await currentUser();
   if (!clerkUser) return null;
   const email =
@@ -54,7 +61,7 @@ export const ensureUser = async (): Promise<AppUser | null> => {
     clerkUser.username ||
     null;
   return provisionUser({ id: clerkUser.id, email, name });
-};
+});
 
 export const handleFor = (user: { name: string | null; email: string }) => {
   const base = user.name?.trim() || user.email.split("@")[0];
