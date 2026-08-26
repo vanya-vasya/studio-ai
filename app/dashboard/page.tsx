@@ -50,10 +50,10 @@ export default async function DashboardPage() {
         {stats.map((stat) => (
           <div key={stat.label} className="card-panel p-5">
             <p className="text-sm text-zinc-500">{stat.label}</p>
-            <p className="mt-1 text-3xl font-bold text-white">{stat.value}</p>
+            <p className="mt-1 text-3xl font-bold text-zinc-900">{stat.value}</p>
             <Link
               href={stat.action.href}
-              className="mt-3 inline-flex items-center gap-1 text-sm text-purple-300 hover:text-purple-200"
+              className="mt-3 inline-flex items-center gap-1 text-sm text-purple-600 hover:text-purple-500"
             >
               {stat.action.label} <ArrowRight className="size-3.5" aria-hidden />
             </Link>
@@ -63,7 +63,7 @@ export default async function DashboardPage() {
 
       <section className="mt-12">
         <p className="section-label">Start here</p>
-        <h2 className="mt-1 text-xl font-semibold text-white">
+        <h2 className="mt-1 text-xl font-semibold text-zinc-900">
           The tools people open first
         </h2>
         <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -82,15 +82,15 @@ export default async function DashboardPage() {
 
       <section className="mt-12">
         <p className="section-label">Latest results</p>
-        <h2 className="mt-1 text-xl font-semibold text-white">Fresh from the studio</h2>
+        <h2 className="mt-1 text-xl font-semibold text-zinc-900">Fresh from the studio</h2>
         {doneRuns.length === 0 ? (
           <div className="card-panel mt-5 p-10 text-center">
-            <p className="text-zinc-400">
+            <p className="text-zinc-600">
               Nothing here yet. Your finished frames will show up on this shelf.
             </p>
             <Link
               href="/dashboard/tools/photo-studio"
-              className="mt-4 inline-flex items-center gap-1 text-sm text-purple-300 hover:text-purple-200"
+              className="mt-4 inline-flex items-center gap-1 text-sm text-purple-600 hover:text-purple-500"
             >
               Open Photo Studio <ArrowRight className="size-4" aria-hidden />
             </Link>
@@ -117,7 +117,7 @@ export default async function DashboardPage() {
                   </div>
                 )}
                 <div className="p-3">
-                  <p className="text-sm font-medium text-zinc-100">
+                  <p className="text-sm font-medium text-zinc-900">
                     {getTool(run.toolSlug)?.name ?? run.toolSlug}
                   </p>
                   <p className="text-xs text-zinc-500">

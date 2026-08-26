@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -31,23 +30,22 @@ export default function RootLayout({
   return (
     <ClerkProvider
       appearance={{
-        theme: dark,
         variables: {
           colorPrimary: "#a855f7",
-          colorBackground: "#0b0b12",
-          colorInput: "rgba(255,255,255,0.05)",
+          colorBackground: "#ffffff",
+          colorInput: "#ffffff",
           borderRadius: "0.75rem",
         },
       }}
       signInUrl="/login"
       signUpUrl="/signup"
     >
-      <html lang="en" className="dark">
+      <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} page-glow min-h-screen font-sans`}
         >
           {children}
-          <Toaster theme="dark" position="bottom-right" />
+          <Toaster theme="light" position="bottom-right" />
         </body>
       </html>
     </ClerkProvider>

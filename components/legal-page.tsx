@@ -14,9 +14,9 @@ export const LegalPage = ({
     <div className="mt-10 space-y-8">
       {sections.map((section) => (
         <section key={section.heading}>
-          <h2 className="text-lg font-semibold text-white">{section.heading}</h2>
+          <h2 className="text-lg font-semibold text-zinc-900">{section.heading}</h2>
           {section.body.map((paragraph) => (
-            <p key={paragraph.slice(0, 40)} className="mt-3 text-sm leading-relaxed text-zinc-400">
+            <p key={paragraph.slice(0, 40)} className="mt-3 text-sm leading-relaxed text-zinc-600">
               {paragraph}
             </p>
           ))}

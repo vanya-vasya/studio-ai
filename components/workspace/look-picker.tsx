@@ -23,8 +23,8 @@ export const LookPicker = ({
         <button
           type="button"
           onClick={() => setFilter("all")}
-          className={`chip transition-colors hover:border-white/30 ${
-            filter === "all" ? "border-purple-400/60 text-white" : ""
+          className={`chip transition-colors hover:border-zinc-400 ${
+            filter === "all" ? "border-purple-500/60 bg-purple-500/10 text-purple-700" : ""
           }`}
         >
           All
@@ -34,8 +34,8 @@ export const LookPicker = ({
             key={category.id}
             type="button"
             onClick={() => setFilter(category.id)}
-            className={`chip transition-colors hover:border-white/30 ${
-              filter === category.id ? "border-purple-400/60 text-white" : ""
+            className={`chip transition-colors hover:border-zinc-400 ${
+              filter === category.id ? "border-purple-500/60 bg-purple-500/10 text-purple-700" : ""
             }`}
           >
             {category.label}
@@ -54,8 +54,8 @@ export const LookPicker = ({
               aria-pressed={isSelected}
               className={`group relative overflow-hidden rounded-xl border text-left transition-all disabled:opacity-50 ${
                 isSelected
-                  ? "border-purple-400/80 ring-2 ring-purple-400/40"
-                  : "border-white/8 hover:border-white/25"
+                  ? "border-purple-500/70 ring-2 ring-purple-500/30"
+                  : "border-black/8 hover:border-zinc-400"
               }`}
             >
               <div className="relative aspect-[2/3]">
@@ -70,7 +70,7 @@ export const LookPicker = ({
               </div>
               <div className="absolute inset-x-0 bottom-0 p-2.5">
                 <p className="text-xs font-semibold text-white">{look.name}</p>
-                <p className="line-clamp-1 text-[11px] text-zinc-400">
+                <p className="line-clamp-1 text-[11px] text-zinc-300">
                   {look.tagline}
                 </p>
               </div>

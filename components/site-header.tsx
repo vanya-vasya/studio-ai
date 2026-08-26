@@ -15,7 +15,7 @@ export const SiteHeader = async () => {
   const balance = userId ? await getBalance(userId) : null;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/5 bg-[#050508]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-black/5 bg-white/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <div className="flex items-center gap-8">
           <Logo />
@@ -24,7 +24,7 @@ export const SiteHeader = async () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+                className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
               >
                 {item.label}
               </Link>
@@ -36,12 +36,12 @@ export const SiteHeader = async () => {
             <>
               <Link
                 href="/dashboard/billing"
-                className="chip hover:border-white/25"
+                className="chip hover:border-zinc-400"
                 aria-label={`Balance ${balance} credits`}
               >
-                <Coins className="size-3.5 text-purple-300" aria-hidden />
-                <span className="font-semibold text-zinc-100">{balance}</span>
-                <span className="text-zinc-400">cr</span>
+                <Coins className="size-3.5 text-purple-600" aria-hidden />
+                <span className="font-semibold text-zinc-900">{balance}</span>
+                <span className="text-zinc-600">cr</span>
               </Link>
               <Link
                 href="/dashboard"
@@ -54,7 +54,7 @@ export const SiteHeader = async () => {
             <>
               <Link
                 href="/login"
-                className="text-sm text-zinc-300 transition-colors hover:text-white"
+                className="text-sm text-zinc-700 transition-colors hover:text-zinc-900"
               >
                 Sign in
               </Link>

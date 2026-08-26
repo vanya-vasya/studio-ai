@@ -18,7 +18,7 @@ export default async function DashboardToolsPage() {
       </p>
       {CATEGORIES.map((category) => (
         <section key={category.id} className="mt-10">
-          <h2 className="text-lg font-semibold text-white">{category.name}</h2>
+          <h2 className="text-lg font-semibold text-zinc-900">{category.name}</h2>
           <p className="mt-0.5 text-sm text-zinc-500">{category.description}</p>
           <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
             {getToolsByCategory(category.id).map((tool) => (

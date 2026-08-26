@@ -62,7 +62,7 @@ export default async function ResultPage(props: {
 
       <div className="mt-10">
         {run.outputKind === "text" ? (
-          <div className="card-panel whitespace-pre-wrap p-8 font-mono text-sm leading-relaxed text-zinc-200">
+          <div className="card-panel whitespace-pre-wrap p-8 font-mono text-sm leading-relaxed text-zinc-700">
             {run.textOutput}
           </div>
         ) : run.outputKind === "audio" ? (
@@ -84,7 +84,7 @@ export default async function ResultPage(props: {
                 key={file.filename}
                 src={`/api/file/${run.id}/${file.filename}`}
                 alt={`${tool?.name ?? "Result"} frame`}
-                className="w-full rounded-2xl border border-white/8"
+                className="w-full rounded-2xl border border-black/8"
               />
             ))}
           </div>
@@ -97,7 +97,7 @@ export default async function ResultPage(props: {
         </Link>
         <Link
           href="/tools"
-          className="rounded-full border border-white/15 px-6 py-3 text-sm text-zinc-200 hover:border-white/30"
+          className="rounded-full border border-zinc-300 px-6 py-3 text-sm text-zinc-700 hover:border-zinc-400"
         >
           Browse all tools
         </Link>

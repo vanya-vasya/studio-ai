@@ -43,7 +43,7 @@ export default async function InspirationPage(props: {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
       <p className="section-label">Gallery</p>
       <h1 className="mt-2 text-4xl font-bold tracking-tight">Inspiration</h1>
-      <p className="mt-4 max-w-2xl text-zinc-400">
+      <p className="mt-4 max-w-2xl text-zinc-600">
         {posts.length} frames made in the studio. Every tile links to the tool
         and look behind it, so you can reproduce the result with your own photo.
       </p>
@@ -51,8 +51,8 @@ export default async function InspirationPage(props: {
       <div className="mt-8 flex flex-wrap gap-2">
         <Link
           href="/inspiration"
-          className={`chip transition-colors hover:border-white/30 ${
-            toolFilter ? "" : "border-purple-400/60 text-white"
+          className={`chip transition-colors hover:border-zinc-400 ${
+            toolFilter ? "" : "border-purple-500/60 bg-purple-500/10 text-purple-700"
           }`}
         >
           Everything
@@ -61,8 +61,8 @@ export default async function InspirationPage(props: {
           <Link
             key={chip.slug}
             href={`/inspiration?tool=${chip.slug}`}
-            className={`chip transition-colors hover:border-white/30 ${
-              toolFilter === chip.slug ? "border-purple-400/60 text-white" : ""
+            className={`chip transition-colors hover:border-zinc-400 ${
+              toolFilter === chip.slug ? "border-purple-500/60 bg-purple-500/10 text-purple-700" : ""
             }`}
           >
             {chip.name} · {chip.count}
@@ -79,7 +79,7 @@ export default async function InspirationPage(props: {
                 ? `/tool/photo-studio/${post.lookSlug}`
                 : `/tool/${post.toolSlug}`
             }
-            className="group relative block overflow-hidden rounded-2xl border border-white/8"
+            className="group relative block overflow-hidden rounded-2xl border border-black/8"
           >
             <Image
               src={post.imageUrl}
@@ -91,11 +91,11 @@ export default async function InspirationPage(props: {
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4 pt-12">
               <p className="text-sm font-semibold text-white">{post.title}</p>
               <div className="mt-1 flex items-center justify-between">
-                <p className="text-xs text-zinc-400">
+                <p className="text-xs text-zinc-300">
                   {getTool(post.toolSlug)?.name ?? post.toolSlug} · @
                   {post.authorHandle}
                 </p>
-                <span className="flex items-center gap-1 text-xs text-zinc-400">
+                <span className="flex items-center gap-1 text-xs text-zinc-300">
                   <Heart className="size-3" aria-hidden /> {post.likes}
                 </span>
               </div>

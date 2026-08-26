@@ -70,14 +70,14 @@ export default async function CheckoutPage(props: {
     return (
       <div className="mx-auto max-w-lg">
         <div className="card-panel p-8 text-center">
-          <TriangleAlert className="mx-auto size-8 text-amber-300" aria-hidden />
+          <TriangleAlert className="mx-auto size-8 text-amber-600" aria-hidden />
           <h1 className="mt-4 text-2xl font-bold">Almost there</h1>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+          <p className="mt-3 text-sm leading-relaxed text-zinc-600">
             Your {pack.name} order is saved. Card payments are being switched
             on — until then, write to{" "}
             <a
               href="mailto:support@celunio.com"
-              className="text-purple-300 underline underline-offset-4"
+              className="text-purple-600 underline underline-offset-4"
             >
               support@celunio.com
             </a>{" "}
@@ -97,14 +97,14 @@ export default async function CheckoutPage(props: {
   return (
     <div className="mx-auto max-w-lg">
       <h1 className="text-3xl font-bold tracking-tight">Checkout</h1>
-      <p className="mt-3 text-sm text-zinc-400">
+      <p className="mt-3 text-sm text-zinc-600">
         {pack.name} pack —{" "}
-        <span className="font-semibold text-zinc-200">
+        <span className="font-semibold text-zinc-700">
           {(pack.credits + pack.bonus).toLocaleString()} credits
         </span>{" "}
         for {formatPrice(pack.priceCents)}.
       </p>
-      <p className="mt-1 text-xs text-zinc-600">
+      <p className="mt-1 text-xs text-zinc-400">
         Card details are entered on the payment provider&apos;s page, not here.
       </p>
 
@@ -116,7 +116,7 @@ export default async function CheckoutPage(props: {
               key={field.id}
               className={field.half ? "" : "col-span-2"}
             >
-              <span className="mb-1.5 block text-xs font-medium text-zinc-400">
+              <span className="mb-1.5 block text-xs font-medium text-zinc-600">
                 {field.label}
               </span>
               <input
@@ -126,7 +126,7 @@ export default async function CheckoutPage(props: {
                 defaultValue={field.id === "email" ? user.email : ""}
                 placeholder={field.placeholder}
                 maxLength={field.id === "country" ? 2 : undefined}
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-purple-400/60 focus:outline-none"
+                className="w-full rounded-xl border border-black/10 bg-white px-3.5 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-purple-500/60 focus:outline-none"
               />
             </label>
           ))}

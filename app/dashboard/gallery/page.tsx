@@ -25,12 +25,12 @@ export default async function GalleryPage() {
       </p>
       {finished.length === 0 ? (
         <div className="card-panel mt-8 p-12 text-center">
-          <p className="text-zinc-400">
+          <p className="text-zinc-600">
             Nothing here yet. Your finished frames will show up on this shelf.
           </p>
           <Link
             href="/dashboard/tools/photo-studio"
-            className="mt-4 inline-flex items-center gap-1 text-sm text-purple-300 hover:text-purple-200"
+            className="mt-4 inline-flex items-center gap-1 text-sm text-purple-600 hover:text-purple-500"
           >
             Open Photo Studio <ArrowRight className="size-4" aria-hidden />
           </Link>
@@ -57,7 +57,7 @@ export default async function GalleryPage() {
                 </div>
               )}
               <div className="p-3">
-                <p className="text-sm font-medium text-zinc-100">
+                <p className="text-sm font-medium text-zinc-900">
                   {getTool(run.toolSlug)?.name ?? run.toolSlug}
                 </p>
                 <p className="text-xs text-zinc-500">

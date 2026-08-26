@@ -13,7 +13,7 @@ export default function AccountPage() {
         appearance={{
           elements: {
             rootBox: "w-full",
-            cardBox: "w-full shadow-none border border-white/10",
+            cardBox: "w-full shadow-none border border-black/10",
           },
         }}
       />

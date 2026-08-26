@@ -11,7 +11,7 @@ export const LookCard = ({
 }) => (
   <Link
     href={href ?? `/tool/photo-studio/${look.slug}`}
-    className="group relative block overflow-hidden rounded-2xl border border-white/8 transition-transform duration-300 hover:-translate-y-1"
+    className="group relative block overflow-hidden rounded-2xl border border-black/8 transition-transform duration-300 hover:-translate-y-1"
   >
     <div className="relative aspect-[2/3]">
       <Image

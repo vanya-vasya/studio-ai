@@ -33,18 +33,18 @@ export default async function DashboardLayout({
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b border-white/5 bg-[#050508]/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-black/5 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
           <Logo href="/dashboard" />
           <div className="flex items-center gap-3">
             <Link
               href="/dashboard/billing"
-              className="chip hover:border-white/25"
+              className="chip hover:border-zinc-400"
               aria-label={`Balance ${balance} credits`}
             >
-              <Coins className="size-3.5 text-purple-300" aria-hidden />
-              <span className="font-semibold text-zinc-100">{balance}</span>
-              <span className="text-zinc-400">cr</span>
+              <Coins className="size-3.5 text-purple-600" aria-hidden />
+              <span className="font-semibold text-zinc-900">{balance}</span>
+              <span className="text-zinc-600">cr</span>
             </Link>
             <Link href="/dashboard/tools" className="btn-gradient px-4 py-2 text-sm">
               Studio
@@ -56,15 +56,15 @@ export default async function DashboardLayout({
       <div className="mx-auto flex w-full max-w-7xl flex-1 gap-8 px-4 py-8 sm:px-6">
         <aside className="hidden w-60 shrink-0 lg:block">
           <div className="card-panel p-4">
-            <p className="truncate font-semibold text-white">
+            <p className="truncate font-semibold text-zinc-900">
               {user.name ?? user.email.split("@")[0]}
             </p>
             <p className="truncate text-xs text-zinc-500">{user.email}</p>
             <Link
               href="/dashboard/billing"
-              className="chip mt-3 w-full justify-center hover:border-white/25"
+              className="chip mt-3 w-full justify-center hover:border-zinc-400"
             >
-              Balance <span className="font-semibold text-white">{balance}</span>
+              Balance <span className="font-semibold text-zinc-900">{balance}</span>
             </Link>
           </div>
           <nav className="mt-4 space-y-1" aria-label="Dashboard">
@@ -72,7 +72,7 @@ export default async function DashboardLayout({
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-zinc-100"
+                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-zinc-600 transition-colors hover:bg-black/5 hover:text-zinc-900"
               >
                 <item.icon className="size-4" aria-hidden />
                 {item.label}
@@ -81,7 +81,7 @@ export default async function DashboardLayout({
             <SignOutButton redirectUrl="/">
               <button
                 type="button"
-                className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-zinc-100"
+                className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-zinc-600 transition-colors hover:bg-black/5 hover:text-zinc-900"
               >
                 <LogOut className="size-4" aria-hidden />
                 Sign out

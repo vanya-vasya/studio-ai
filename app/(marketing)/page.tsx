@@ -52,7 +52,7 @@ export default function LandingPage() {
             A photo studio that fits{" "}
             <span className="text-gradient">in one upload</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-600">
             Headshots, retouching, restored family photos, product shots,
             interiors, voiceovers. Pick a tool, drop in a picture and watch the
             result develop — no prompt writing, no subscription.
@@ -63,22 +63,22 @@ export default function LandingPage() {
             </Link>
             <Link
               href="/inspiration"
-              className="rounded-full border border-white/15 px-6 py-3 text-sm text-zinc-200 transition-colors hover:border-white/30"
+              className="rounded-full border border-zinc-300 px-6 py-3 text-sm text-zinc-700 transition-colors hover:border-zinc-400"
             >
               See what people made
             </Link>
           </div>
           <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
             <div>
-              <dt className="text-2xl font-bold text-white">~40 s</dt>
+              <dt className="text-2xl font-bold text-zinc-900">~40 s</dt>
               <dd className="text-sm text-zinc-500">per frame</dd>
             </div>
             <div>
-              <dt className="text-2xl font-bold text-white">from $0.02</dt>
+              <dt className="text-2xl font-bold text-zinc-900">from $0.02</dt>
               <dd className="text-sm text-zinc-500">per credit</dd>
             </div>
             <div>
-              <dt className="text-2xl font-bold text-white">No plan</dt>
+              <dt className="text-2xl font-bold text-zinc-900">No plan</dt>
               <dd className="text-sm text-zinc-500">credits never expire</dd>
             </div>
           </dl>
@@ -106,7 +106,7 @@ export default function LandingPage() {
           </h2>
           <Link
             href="/tools"
-            className="flex items-center gap-1 text-sm text-purple-300 hover:text-purple-200"
+            className="flex items-center gap-1 text-sm text-purple-600 hover:text-purple-500"
           >
             All 23 tools <ArrowRight className="size-4" aria-hidden />
           </Link>
@@ -130,8 +130,8 @@ export default function LandingPage() {
               <span className="text-gradient text-sm font-bold">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <h3 className="mt-3 font-semibold text-zinc-900">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                 {step.body}
               </p>
             </li>
@@ -146,7 +146,7 @@ export default function LandingPage() {
           <h2 className="text-3xl font-bold tracking-tight">Made in the studio</h2>
           <Link
             href="/inspiration"
-            className="flex items-center gap-1 text-sm text-purple-300 hover:text-purple-200"
+            className="flex items-center gap-1 text-sm text-purple-600 hover:text-purple-500"
           >
             Browse Inspiration <ArrowRight className="size-4" aria-hidden />
           </Link>
@@ -160,7 +160,7 @@ export default function LandingPage() {
                   ? `/tool/photo-studio/${post.lookSlug}`
                   : `/tool/${post.toolSlug}`
               }
-              className="group relative block overflow-hidden rounded-2xl border border-white/8"
+              className="group relative block overflow-hidden rounded-2xl border border-black/8"
             >
               <Image
                 src={post.imageUrl}
@@ -171,7 +171,7 @@ export default function LandingPage() {
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-3.5 pt-10">
                 <p className="text-sm font-semibold text-white">{post.title}</p>
-                <p className="text-xs text-zinc-400">@{post.authorHandle}</p>
+                <p className="text-xs text-zinc-300">@{post.authorHandle}</p>
               </div>
             </Link>
           ))}
@@ -186,7 +186,7 @@ export default function LandingPage() {
         </h2>
         {CATEGORIES.map((category) => (
           <div key={category.id} className="mt-12">
-            <h3 className="text-xl font-semibold text-white">{category.name}</h3>
+            <h3 className="text-xl font-semibold text-zinc-900">{category.name}</h3>
             <p className="mt-1 text-sm text-zinc-500">{category.description}</p>
             <div className="mt-5 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5">
               {getToolsByCategory(category.id).map((tool) => (
@@ -204,7 +204,7 @@ export default function LandingPage() {
             <h2 className="text-3xl font-bold tracking-tight">
               Pay for frames, <span className="text-gradient">not for months</span>
             </h2>
-            <p className="mt-4 text-zinc-400">
+            <p className="mt-4 text-zinc-600">
               Credits are the only currency here. Nothing renews on its own.
             </p>
           </div>
@@ -214,7 +214,7 @@ export default function LandingPage() {
             </Link>
             <Link
               href="/pricing#tools"
-              className="rounded-full border border-white/15 px-6 py-3 text-sm text-zinc-200 hover:border-white/30"
+              className="rounded-full border border-zinc-300 px-6 py-3 text-sm text-zinc-700 hover:border-zinc-400"
             >
               Per-tool prices
             </Link>
@@ -227,7 +227,7 @@ export default function LandingPage() {
         <h2 className="text-4xl font-bold tracking-tight">
           20 credits <span className="text-gradient">are waiting</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-zinc-400">
+        <p className="mx-auto mt-4 max-w-md text-zinc-600">
           Enough for a first batch of studio frames. No card, no trial countdown
           — make something and decide afterwards.
         </p>

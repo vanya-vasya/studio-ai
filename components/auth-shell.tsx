@@ -19,14 +19,14 @@ export const AuthShell = ({
       <div className="mx-auto w-full max-w-md">
         <Logo />
         <h1 className="mt-10 text-3xl font-bold tracking-tight">{heading}</h1>
-        <p className="mt-3 text-sm leading-relaxed text-zinc-400">{subheading}</p>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-600">{subheading}</p>
         <div className="mt-8">{children}</div>
       </div>
       <div className="hidden grid-cols-2 gap-4 lg:grid">
         {looks.map((look) => (
           <div
             key={look.slug}
-            className="relative overflow-hidden rounded-2xl border border-white/8"
+            className="relative overflow-hidden rounded-2xl border border-black/8"
           >
             <div className="relative aspect-[2/3]">
               <Image

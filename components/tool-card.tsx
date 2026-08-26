@@ -18,7 +18,7 @@ export const ToolCard = ({
 }) => (
   <Link
     href={href ?? `/tool/${tool.slug}`}
-    className="group relative block overflow-hidden rounded-2xl border border-white/8 transition-transform duration-300 hover:-translate-y-1"
+    className="group relative block overflow-hidden rounded-2xl border border-black/8 transition-transform duration-300 hover:-translate-y-1"
   >
     <div className="relative aspect-[3/4]">
       <Image
@@ -30,7 +30,7 @@ export const ToolCard = ({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
     </div>
-    <span className="chip absolute right-3 top-3 bg-black/50 font-semibold backdrop-blur">
+    <span className="chip absolute right-3 top-3 border-white/20 bg-black/50 font-semibold text-white backdrop-blur">
       {priceLabel(tool)}
     </span>
     {tool.popular ? (

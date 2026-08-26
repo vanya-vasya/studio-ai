@@ -41,7 +41,7 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
 ];
 
 export const SiteFooter = () => (
-  <footer className="mt-24 border-t border-white/5">
+  <footer className="mt-24 border-t border-black/5">
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
       <div className="grid gap-10 md:grid-cols-[1.2fr_repeat(4,1fr)]">
         <div className="space-y-4">
@@ -63,7 +63,7 @@ export const SiteFooter = () => (
                 <li key={link.href + link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+                    className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
                   >
                     {link.label}
                   </Link>
@@ -73,7 +73,7 @@ export const SiteFooter = () => (
           </nav>
         ))}
       </div>
-      <p className="mt-12 border-t border-white/5 pt-6 text-xs text-zinc-600">
+      <p className="mt-12 border-t border-black/5 pt-6 text-xs text-zinc-400">
         © 2026 Celunio. All rights reserved.
       </p>
     </div>

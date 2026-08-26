@@ -283,7 +283,7 @@ export const Workspace = ({
       case "select":
         return (
           <div key={control.id}>
-            <p className="mb-1.5 text-xs font-medium text-zinc-400">
+            <p className="mb-1.5 text-xs font-medium text-zinc-600">
               {control.label}
             </p>
             <Select
@@ -297,7 +297,7 @@ export const Workspace = ({
       case "text":
         return (
           <div key={control.id}>
-            <p className="mb-1.5 text-xs font-medium text-zinc-400">
+            <p className="mb-1.5 text-xs font-medium text-zinc-600">
               {control.label}
             </p>
             <input
@@ -306,7 +306,7 @@ export const Workspace = ({
               disabled={running}
               onChange={(event) => setParam(control.id, event.target.value)}
               placeholder={control.placeholder}
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-purple-400/60 focus:outline-none disabled:opacity-50"
+              className="w-full rounded-xl border border-black/10 bg-white px-3.5 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-purple-500/60 focus:outline-none disabled:opacity-50"
             />
           </div>
         );
@@ -314,9 +314,9 @@ export const Workspace = ({
         return (
           <div key={control.id}>
             <div className="mb-1.5 flex items-center justify-between">
-              <p className="text-xs font-medium text-zinc-400">{control.label}</p>
+              <p className="text-xs font-medium text-zinc-600">{control.label}</p>
               {control.maxLength ? (
-                <p className="text-[11px] text-zinc-600">
+                <p className="text-[11px] text-zinc-400">
                   {params[control.id]?.length ?? 0}/{control.maxLength}
                 </p>
               ) : null}
@@ -328,7 +328,7 @@ export const Workspace = ({
               onChange={(event) => setParam(control.id, event.target.value)}
               placeholder={control.placeholder}
               rows={4}
-              className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-purple-400/60 focus:outline-none disabled:opacity-50"
+              className="w-full resize-none rounded-xl border border-black/10 bg-white px-3.5 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-purple-500/60 focus:outline-none disabled:opacity-50"
             />
             {control.examples ? (
               <div className="mt-2 flex flex-wrap gap-2">
@@ -338,7 +338,7 @@ export const Workspace = ({
                     type="button"
                     disabled={running}
                     onClick={() => setParam(control.id, example)}
-                    className="chip text-left transition-colors hover:border-white/30 disabled:opacity-50"
+                    className="chip text-left transition-colors hover:border-zinc-400 disabled:opacity-50"
                   >
                     {example}
                   </button>
@@ -350,7 +350,7 @@ export const Workspace = ({
       case "switch":
         return (
           <div key={control.id} className="flex items-center justify-between">
-            <p className="text-sm text-zinc-300">{control.label}</p>
+            <p className="text-sm text-zinc-700">{control.label}</p>
             <Switch
               checked={params[control.id] === "true"}
               onCheckedChange={(checked) =>
@@ -373,14 +373,14 @@ export const Workspace = ({
       case "lookPicker":
         return selectedLook ? (
           <div key={control.id} className="flex flex-wrap items-center gap-2">
-            <span className="chip border-purple-400/60 text-white">
+            <span className="chip border-purple-500/60 bg-purple-500/10 text-purple-700">
               {selectedLook.name}
               <button
                 type="button"
                 aria-label={`Remove look ${selectedLook.name}`}
                 onClick={() => setParam(control.id, "")}
                 disabled={running}
-                className="ml-1 text-zinc-400 hover:text-white"
+                className="ml-1 text-purple-400 hover:text-purple-700"
               >
                 <X className="size-3" aria-hidden />
               </button>
@@ -389,7 +389,7 @@ export const Workspace = ({
               type="button"
               onClick={() => setParam(control.id, "")}
               disabled={running}
-              className="text-xs text-zinc-500 hover:text-zinc-200"
+              className="text-xs text-zinc-500 hover:text-zinc-700"
             >
               Clear the look
             </button>
@@ -414,7 +414,7 @@ export const Workspace = ({
           ).map((frame, index) => (
             <div
               key={index}
-              className="relative flex items-center justify-center overflow-hidden rounded-xl border border-white/8 bg-white/[0.02]"
+              className="relative flex items-center justify-center overflow-hidden rounded-xl border border-black/8 bg-black/[0.02]"
             >
               {frame.url ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -431,12 +431,12 @@ export const Workspace = ({
                   className="size-full object-cover opacity-80 blur-[2px]"
                 />
               ) : running ? (
-                <div className="flex flex-col items-center gap-2 py-16 text-zinc-600">
+                <div className="flex flex-col items-center gap-2 py-16 text-zinc-400">
                   <Loader2 className="size-5 animate-spin" aria-hidden />
                   <span className="text-xs">developing…</span>
                 </div>
               ) : (
-                <span className="py-16 text-xs text-zinc-700">·</span>
+                <span className="py-16 text-xs text-zinc-300">·</span>
               )}
             </div>
           ))}
@@ -447,7 +447,7 @@ export const Workspace = ({
             /* eslint-disable-next-line jsx-a11y/media-has-caption */
             <audio controls src={audioUrl} className="w-full" />
           ) : (
-            <div className="flex flex-col items-center gap-2 text-zinc-600">
+            <div className="flex flex-col items-center gap-2 text-zinc-400">
               {running ? (
                 <>
                   <Loader2 className="size-5 animate-spin" aria-hidden />
@@ -467,7 +467,7 @@ export const Workspace = ({
                 type="button"
                 onClick={handleCopyText}
                 aria-label="Copy text"
-                className="absolute right-0 top-0 rounded-lg p-2 text-zinc-500 hover:bg-white/10 hover:text-zinc-200"
+                className="absolute right-0 top-0 rounded-lg p-2 text-zinc-500 hover:bg-black/5 hover:text-zinc-700"
               >
                 {copied ? (
                   <Check className="size-4" aria-hidden />
@@ -475,12 +475,12 @@ export const Workspace = ({
                   <Copy className="size-4" aria-hidden />
                 )}
               </button>
-              <pre className="whitespace-pre-wrap pr-10 font-mono text-sm leading-relaxed text-zinc-200">
+              <pre className="whitespace-pre-wrap pr-10 font-mono text-sm leading-relaxed text-zinc-700">
                 {textOut}
               </pre>
             </div>
           ) : (
-            <div className="flex h-full flex-col items-center justify-center gap-2 text-zinc-600">
+            <div className="flex h-full flex-col items-center justify-center gap-2 text-zinc-400">
               {running ? (
                 <>
                   <Loader2 className="size-5 animate-spin" aria-hidden />
@@ -495,18 +495,18 @@ export const Workspace = ({
       )}
 
       {phase === "error" && errorMessage ? (
-        <div className="mt-4 rounded-xl border border-red-400/25 bg-red-400/8 p-3.5 text-sm text-red-200">
+        <div className="mt-4 rounded-xl border border-red-300 bg-red-50 p-3.5 text-sm text-red-700">
           {errorMessage} — credits returned to your balance.
         </div>
       ) : null}
 
       {phase === "done" ? (
-        <div className="mt-4 flex flex-wrap items-center gap-2.5 border-t border-white/8 pt-4">
+        <div className="mt-4 flex flex-wrap items-center gap-2.5 border-t border-black/8 pt-4">
           {finishedFiles.map((file) => (
             <a
               key={file.url}
               href={`${file.url}?download`}
-              className="chip transition-colors hover:border-white/30"
+              className="chip transition-colors hover:border-zinc-400"
             >
               <Download className="size-3.5" aria-hidden /> {file.label}
             </a>
@@ -514,7 +514,7 @@ export const Workspace = ({
           {runId ? (
             <Link
               href={`/r/${runId}`}
-              className="chip transition-colors hover:border-white/30"
+              className="chip transition-colors hover:border-zinc-400"
             >
               <ExternalLink className="size-3.5" aria-hidden /> Result page
             </Link>
@@ -523,7 +523,7 @@ export const Workspace = ({
             <button
               type="button"
               onClick={handleShare}
-              className="chip transition-colors hover:border-purple-400/60"
+              className="chip transition-colors hover:border-purple-500/60"
             >
               <Share2 className="size-3.5" aria-hidden /> Share to Inspiration
             </button>
@@ -541,7 +541,7 @@ export const Workspace = ({
       <div className="card-panel h-fit space-y-5 p-5">
         {tool.inputs.map((input: FileInput) => (
           <div key={input.id}>
-            <p className="mb-1.5 text-xs font-medium text-zinc-400">
+            <p className="mb-1.5 text-xs font-medium text-zinc-600">
               {input.label}
               {input.required ? "" : " (optional)"}
             </p>
@@ -582,7 +582,7 @@ export const Workspace = ({
           <button
             type="button"
             onClick={handleCancel}
-            className="w-full rounded-full border border-white/15 py-2.5 text-sm text-zinc-300 hover:border-white/30"
+            className="w-full rounded-full border border-zinc-300 py-2.5 text-sm text-zinc-700 hover:border-zinc-400"
           >
             Cancel
           </button>
@@ -613,7 +613,7 @@ export const Workspace = ({
               setPhase("idle");
               setFrames([]);
             }}
-            className="mt-4 text-sm text-zinc-400 hover:text-zinc-100"
+            className="mt-4 text-sm text-zinc-600 hover:text-zinc-900"
           >
             ← Back to the looks
           </button>

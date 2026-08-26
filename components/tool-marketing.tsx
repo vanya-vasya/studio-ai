@@ -59,7 +59,7 @@ export const ToolMarketing = ({
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
       <Link
         href="/tools"
-        className="inline-flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-100"
+        className="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900"
       >
         <ArrowLeft className="size-4" aria-hidden /> All tools
       </Link>
@@ -69,22 +69,22 @@ export const ToolMarketing = ({
           <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
             {titleOverride ?? tool.name}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-zinc-400">
+          <p className="mt-4 max-w-2xl text-lg text-zinc-600">
             {taglineOverride ?? tool.tagline}
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             <div className="card-panel p-6">
-              <h2 className="font-semibold text-white">What you bring</h2>
+              <h2 className="font-semibold text-zinc-900">What you bring</h2>
               <ul className="mt-4 space-y-3">
                 {tool.inputs.length === 0 ? (
-                  <li className="text-sm leading-relaxed text-zinc-400">
+                  <li className="text-sm leading-relaxed text-zinc-600">
                     Nothing to upload — a short description is enough.
                   </li>
                 ) : (
                   tool.inputs.map((input) => (
-                    <li key={input.id} className="text-sm leading-relaxed text-zinc-400">
-                      <span className="font-medium text-zinc-200">
+                    <li key={input.id} className="text-sm leading-relaxed text-zinc-600">
+                      <span className="font-medium text-zinc-700">
                         {input.label}
                         {input.required ? "" : " (optional)"}
                       </span>{" "}
@@ -95,11 +95,11 @@ export const ToolMarketing = ({
               </ul>
             </div>
             <div className="card-panel p-6">
-              <h2 className="font-semibold text-white">What you get</h2>
+              <h2 className="font-semibold text-zinc-900">What you get</h2>
               <ul className="mt-4 space-y-3">
                 {whatYouGet(tool).map((line) => (
-                  <li key={line} className="flex gap-2 text-sm leading-relaxed text-zinc-400">
-                    <Check className="mt-0.5 size-4 shrink-0 text-purple-400" aria-hidden />
+                  <li key={line} className="flex gap-2 text-sm leading-relaxed text-zinc-600">
+                    <Check className="mt-0.5 size-4 shrink-0 text-purple-500" aria-hidden />
                     {line}
                   </li>
                 ))}
@@ -109,7 +109,7 @@ export const ToolMarketing = ({
 
           {tool.controls.length > 0 ? (
             <p className="mt-6 text-sm leading-relaxed text-zinc-500">
-              <span className="font-semibold uppercase tracking-wide text-zinc-400">
+              <span className="font-semibold uppercase tracking-wide text-zinc-600">
                 Controls:
               </span>{" "}
               {controlSummary(tool)}
@@ -121,8 +121,8 @@ export const ToolMarketing = ({
 
         <aside>
           <div className="card-panel sticky top-24 p-6">
-            <p className="text-3xl font-bold text-white">
-              {tool.price} <span className="text-lg text-zinc-400">credits per run</span>
+            <p className="text-3xl font-bold text-zinc-900">
+              {tool.price} <span className="text-lg text-zinc-600">credits per run</span>
             </p>
             <p className="mt-3 text-sm leading-relaxed text-zinc-500">
               New accounts start with 20 credits, so the first run is on us. No
@@ -136,7 +136,7 @@ export const ToolMarketing = ({
             </Link>
             <Link
               href="/signup"
-              className="mt-3 block w-full rounded-full border border-white/15 py-3 text-center text-sm text-zinc-200 hover:border-white/30"
+              className="mt-3 block w-full rounded-full border border-zinc-300 py-3 text-center text-sm text-zinc-700 hover:border-zinc-400"
             >
               Create a free account
             </Link>

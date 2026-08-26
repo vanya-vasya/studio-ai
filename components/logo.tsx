@@ -11,7 +11,7 @@ export const Logo = ({ href = "/" }: { href?: string }) => (
       priority
       className="size-7 rounded-full"
     />
-    <span className="text-sm font-bold tracking-[0.22em] text-zinc-100">
+    <span className="text-sm font-bold tracking-[0.22em] text-zinc-900">
       CELUNIO
     </span>
   </Link>

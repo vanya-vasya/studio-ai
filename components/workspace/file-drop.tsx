@@ -43,7 +43,7 @@ export const FileDrop = ({
 
   if (file) {
     return (
-      <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
+      <div className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3">
         {previewUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -52,12 +52,12 @@ export const FileDrop = ({
             className="size-14 rounded-lg object-cover"
           />
         ) : (
-          <div className="flex size-14 items-center justify-center rounded-lg bg-white/5 text-xl">
+          <div className="flex size-14 items-center justify-center rounded-lg bg-black/5 text-xl">
             🎵
           </div>
         )}
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-medium text-zinc-100">{file.name}</p>
+          <p className="truncate text-sm font-medium text-zinc-900">{file.name}</p>
           <p className="text-xs text-zinc-500">{formatSize(file.size)}</p>
         </div>
         <button
@@ -65,7 +65,7 @@ export const FileDrop = ({
           aria-label={`Remove ${file.name}`}
           onClick={() => onFile(null)}
           disabled={disabled}
-          className="rounded-full p-2 text-zinc-500 transition-colors hover:bg-white/10 hover:text-zinc-200 disabled:opacity-40"
+          className="rounded-full p-2 text-zinc-500 transition-colors hover:bg-black/5 hover:text-zinc-700 disabled:opacity-40"
         >
           <X className="size-4" aria-hidden />
         </button>
@@ -90,12 +90,12 @@ export const FileDrop = ({
       }}
       className={`w-full rounded-xl border border-dashed p-6 text-center transition-colors disabled:opacity-40 ${
         dragOver
-          ? "border-purple-400/70 bg-purple-400/5"
-          : "border-white/15 bg-white/[0.02] hover:border-white/30"
+          ? "border-purple-500/70 bg-purple-500/5"
+          : "border-zinc-300 bg-black/[0.02] hover:border-zinc-400"
       }`}
     >
       <UploadCloud className="mx-auto size-6 text-zinc-500" aria-hidden />
-      <p className="mt-2 text-sm font-medium text-zinc-200">
+      <p className="mt-2 text-sm font-medium text-zinc-700">
         Choose a file or drop it here
       </p>
       <p className="mt-1 text-xs text-zinc-500">

@@ -118,8 +118,8 @@ export const BrushMask = ({
 
   return (
     <div>
-      <p className="mb-2 text-xs font-medium text-zinc-400">{label}</p>
-      <div className="relative overflow-hidden rounded-xl border border-white/10">
+      <p className="mb-2 text-xs font-medium text-zinc-600">{label}</p>
+      <div className="relative overflow-hidden rounded-xl border border-black/10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={imageUrl} alt="Uploaded" className="block w-full select-none" />
         <canvas
@@ -160,7 +160,7 @@ export const BrushMask = ({
             value={brushSize}
             disabled={disabled}
             onChange={(event) => setBrushSize(Number(event.target.value))}
-            className="flex-1 accent-purple-400"
+            className="flex-1 accent-purple-500"
             aria-label="Brush size"
           />
         </label>
@@ -169,7 +169,7 @@ export const BrushMask = ({
             type="button"
             onClick={clearMask}
             disabled={disabled}
-            className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-100 disabled:opacity-40"
+            className="flex items-center gap-1.5 text-xs text-zinc-600 hover:text-zinc-900 disabled:opacity-40"
           >
             <Eraser className="size-3.5" aria-hidden /> Clear
           </button>

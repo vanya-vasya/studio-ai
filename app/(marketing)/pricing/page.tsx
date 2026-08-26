@@ -17,7 +17,7 @@ export default function PricingPage() {
       <h1 className="mt-2 text-4xl font-bold tracking-tight">
         Pay for frames, <span className="text-gradient">not for months</span>
       </h1>
-      <p className="mt-4 max-w-2xl text-zinc-400">
+      <p className="mt-4 max-w-2xl text-zinc-600">
         Credits are the only currency here. Nothing renews on its own. New
         accounts start with 20 free credits.
       </p>
@@ -35,11 +35,11 @@ export default function PricingPage() {
                 Best value
               </span>
             ) : null}
-            <h2 className="font-semibold text-white">{pack.name}</h2>
-            <p className="mt-3 text-3xl font-bold text-white">
+            <h2 className="font-semibold text-zinc-900">{pack.name}</h2>
+            <p className="mt-3 text-3xl font-bold text-zinc-900">
               {formatPrice(pack.priceCents)}
             </p>
-            <p className="mt-1 text-sm text-zinc-400">
+            <p className="mt-1 text-sm text-zinc-600">
               {pack.credits.toLocaleString()} credits
               {pack.bonus > 0 ? ` + ${pack.bonus} bonus` : ""}
             </p>
@@ -48,8 +48,8 @@ export default function PricingPage() {
             </p>
             <ul className="mt-5 flex-1 space-y-2.5">
               {pack.bullets.map((bullet) => (
-                <li key={bullet} className="flex gap-2 text-sm text-zinc-400">
-                  <Check className="mt-0.5 size-4 shrink-0 text-purple-400" aria-hidden />
+                <li key={bullet} className="flex gap-2 text-sm text-zinc-600">
+                  <Check className="mt-0.5 size-4 shrink-0 text-purple-500" aria-hidden />
                   {bullet}
                 </li>
               ))}
@@ -59,7 +59,7 @@ export default function PricingPage() {
               className={`mt-6 block w-full rounded-full py-2.5 text-center text-sm font-semibold ${
                 pack.bestValue
                   ? "btn-gradient"
-                  : "border border-white/15 text-zinc-200 hover:border-white/30"
+                  : "border border-zinc-300 text-zinc-700 hover:border-zinc-400"
               }`}
             >
               Buy {pack.name}
@@ -76,17 +76,17 @@ export default function PricingPage() {
         <div className="card-panel mt-6 overflow-hidden">
           {CATEGORIES.map((category) => (
             <div key={category.id}>
-              <p className="section-label border-b border-white/5 bg-white/[0.02] px-5 py-3">
+              <p className="section-label border-b border-black/5 bg-black/[0.02] px-5 py-3">
                 {category.name}
               </p>
               {getToolsByCategory(category.id).map((tool) => (
                 <Link
                   key={tool.slug}
                   href={`/tool/${tool.slug}`}
-                  className="flex items-center justify-between border-b border-white/5 px-5 py-3.5 transition-colors last:border-0 hover:bg-white/[0.03]"
+                  className="flex items-center justify-between border-b border-black/5 px-5 py-3.5 transition-colors last:border-0 hover:bg-black/[0.03]"
                 >
                   <span>
-                    <span className="text-sm font-medium text-zinc-100">
+                    <span className="text-sm font-medium text-zinc-900">
                       {tool.name}
                     </span>
                     <span className="ml-2 hidden text-sm text-zinc-500 sm:inline">

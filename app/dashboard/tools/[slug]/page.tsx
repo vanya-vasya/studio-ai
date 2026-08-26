@@ -39,7 +39,7 @@ export default async function WorkspacePage(props: {
     <div>
       <Link
         href="/dashboard/tools"
-        className="inline-flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-100"
+        className="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900"
       >
         <ArrowLeft className="size-4" aria-hidden /> All tools
       </Link>
@@ -48,7 +48,7 @@ export default async function WorkspacePage(props: {
         <div>
           <p className="section-label">{category.name}</p>
           <h1 className="mt-1.5 text-3xl font-bold tracking-tight">{tool.name}</h1>
-          <p className="mt-2 max-w-xl text-sm text-zinc-400">{tool.tagline}</p>
+          <p className="mt-2 max-w-xl text-sm text-zinc-600">{tool.tagline}</p>
         </div>
         <span className="chip font-semibold">Costs {tool.price} cr</span>
       </div>

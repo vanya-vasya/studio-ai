@@ -54,8 +54,8 @@ export default function FaqPage() {
       <dl className="mt-10 space-y-4">
         {FAQ.map((item) => (
           <div key={item.q} className="card-panel p-6">
-            <dt className="font-semibold text-white">{item.q}</dt>
-            <dd className="mt-2 text-sm leading-relaxed text-zinc-400">{item.a}</dd>
+            <dt className="font-semibold text-zinc-900">{item.q}</dt>
+            <dd className="mt-2 text-sm leading-relaxed text-zinc-600">{item.a}</dd>
           </div>
         ))}
       </dl>

@@ -13,7 +13,7 @@ export default function AboutPage() {
       <h1 className="mt-2 text-4xl font-bold tracking-tight">
         Why narrow tools beat <span className="text-gradient">an empty prompt box</span>
       </h1>
-      <div className="mt-8 space-y-6 leading-relaxed text-zinc-400">
+      <div className="mt-8 space-y-6 leading-relaxed text-zinc-600">
         <p>
           Give someone a blank prompt field and they freeze. Give them a tool
           called “Business Headshot” with three dropdowns and they get a usable
@@ -46,7 +46,7 @@ export default function AboutPage() {
         </Link>
         <Link
           href="/tools"
-          className="rounded-full border border-white/15 px-6 py-3 text-sm text-zinc-200 hover:border-white/30"
+          className="rounded-full border border-zinc-300 px-6 py-3 text-sm text-zinc-700 hover:border-zinc-400"
         >
           Browse the tools
         </Link>

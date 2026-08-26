@@ -24,13 +24,13 @@ export default async function BillingPage() {
     <div>
       <h1 className="text-3xl font-bold tracking-tight">Credits</h1>
       <p className="mt-2 text-sm text-zinc-500">
-        Balance: <span className="font-semibold text-zinc-200">{balance} credits</span>.
+        Balance: <span className="font-semibold text-zinc-700">{balance} credits</span>.
         Credits never expire; failed runs refund automatically.
       </p>
 
-      <div className="mt-6 flex items-start gap-3 rounded-2xl border border-amber-400/25 bg-amber-400/8 p-4">
-        <TriangleAlert className="mt-0.5 size-4 shrink-0 text-amber-300" aria-hidden />
-        <p className="text-sm leading-relaxed text-amber-100/90">
+      <div className="mt-6 flex items-start gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-4">
+        <TriangleAlert className="mt-0.5 size-4 shrink-0 text-amber-600" aria-hidden />
+        <p className="text-sm leading-relaxed text-amber-900">
           Card payments are being switched on. Until then, write to{" "}
           <a
             href="mailto:support@celunio.com"
@@ -55,11 +55,11 @@ export default async function BillingPage() {
                 Best value
               </span>
             ) : null}
-            <h2 className="font-semibold text-white">{pack.name}</h2>
-            <p className="mt-2 text-3xl font-bold text-white">
+            <h2 className="font-semibold text-zinc-900">{pack.name}</h2>
+            <p className="mt-2 text-3xl font-bold text-zinc-900">
               {formatPrice(pack.priceCents)}
             </p>
-            <p className="mt-1 text-sm text-zinc-400">
+            <p className="mt-1 text-sm text-zinc-600">
               {pack.credits.toLocaleString()} credits
               {pack.bonus > 0 ? ` + ${pack.bonus} bonus` : ""}
             </p>
@@ -68,8 +68,8 @@ export default async function BillingPage() {
             </p>
             <ul className="mt-4 flex-1 space-y-2">
               {pack.bullets.map((bullet) => (
-                <li key={bullet} className="flex gap-2 text-xs text-zinc-400">
-                  <Check className="mt-0.5 size-3.5 shrink-0 text-purple-400" aria-hidden />
+                <li key={bullet} className="flex gap-2 text-xs text-zinc-600">
+                  <Check className="mt-0.5 size-3.5 shrink-0 text-purple-500" aria-hidden />
                   {bullet}
                 </li>
               ))}
@@ -79,7 +79,7 @@ export default async function BillingPage() {
               className={`mt-5 block w-full rounded-full py-2.5 text-center text-sm font-semibold ${
                 pack.bestValue
                   ? "btn-gradient"
-                  : "border border-white/15 text-zinc-200 hover:border-white/30"
+                  : "border border-zinc-300 text-zinc-700 hover:border-zinc-400"
               }`}
             >
               Buy {pack.name}
@@ -89,7 +89,7 @@ export default async function BillingPage() {
       </div>
 
       <section className="mt-12">
-        <h2 className="text-lg font-semibold text-white">Purchase history</h2>
+        <h2 className="text-lg font-semibold text-zinc-900">Purchase history</h2>
         {userPurchases.length === 0 ? (
           <p className="card-panel mt-4 p-8 text-center text-sm text-zinc-500">
             No purchases yet.
@@ -99,10 +99,10 @@ export default async function BillingPage() {
             {userPurchases.map((purchase) => (
               <div
                 key={purchase.id}
-                className="flex items-center justify-between gap-4 border-b border-white/5 px-5 py-3.5 last:border-0"
+                className="flex items-center justify-between gap-4 border-b border-black/5 px-5 py-3.5 last:border-0"
               >
                 <div>
-                  <p className="text-sm font-medium text-zinc-100">
+                  <p className="text-sm font-medium text-zinc-900">
                     {getPack(purchase.pack)?.name ?? purchase.pack} —{" "}
                     {purchase.credits.toLocaleString()} credits
                   </p>
@@ -115,15 +115,15 @@ export default async function BillingPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-sm font-semibold text-zinc-300">
+                  <span className="text-sm font-semibold text-zinc-700">
                     {formatPrice(purchase.priceCents)}
                   </span>
                   <span
                     className={`chip text-[11px] ${
                       purchase.status === "paid"
-                        ? "border-emerald-400/40 text-emerald-300"
+                        ? "border-emerald-600/30 text-emerald-700"
                         : purchase.status === "pending"
-                          ? "border-amber-400/40 text-amber-300"
+                          ? "border-amber-500/50 text-amber-600"
                           : ""
                     }`}
                   >
@@ -134,7 +134,7 @@ export default async function BillingPage() {
             ))}
           </div>
         )}
-        <p className="mt-4 text-xs text-zinc-600">
+        <p className="mt-4 text-xs text-zinc-400">
           Payments are processed by our gateway; we never see your card details.
         </p>
       </section>
