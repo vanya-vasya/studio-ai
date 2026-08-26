@@ -17,7 +17,7 @@ export default function AboutPage() {
         <p>
           Give someone a blank prompt field and they freeze. Give them a tool
           called “Business Headshot” with three dropdowns and they get a usable
-          portrait on the first try. Framique is built on that observation: 23
+          portrait on the first try. Celunio is built on that observation: 23
           narrow tools, each doing one job with the fewest possible knobs.
         </p>
         <p>

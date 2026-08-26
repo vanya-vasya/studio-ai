@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: "How credits, refunds, ownership and speed work on Framique.",
+  description: "How credits, refunds, ownership and speed work on Celunio.",
 };
 
 const FAQ: { q: string; a: string }[] = [
@@ -40,7 +40,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Can I get an invoice?",
-    a: "Yes — write to support@framique.com with your account email and we'll send one within two business days.",
+    a: "Yes — write to support@celunio.com with your account email and we'll send one within two business days.",
   },
 ];
 

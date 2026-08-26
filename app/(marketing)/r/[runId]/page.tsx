@@ -16,7 +16,7 @@ export const generateMetadata = async (props: {
   if (!run) return {};
   const tool = getTool(run.toolSlug);
   return {
-    title: `${tool?.name ?? "Result"} — made with Framique`,
+    title: `${tool?.name ?? "Result"} — made with Celunio`,
     description: tool?.tagline,
   };
 };
@@ -51,7 +51,7 @@ export default async function ResultPage(props: {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <p className="section-label text-center">Made with Framique</p>
+      <p className="section-label text-center">Made with Celunio</p>
       <h1 className="mt-3 text-center text-4xl font-bold tracking-tight">
         {look ? look.name : (tool?.name ?? run.toolSlug)}
       </h1>

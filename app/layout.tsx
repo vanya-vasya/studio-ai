@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   ),
   title: {
-    default: "Framique — AI photo studio in one upload",
-    template: "%s · Framique",
+    default: "Celunio — AI photo studio in one upload",
+    template: "%s · Celunio",
   },
   description:
     "23 AI tools on a single engine. Headshots, retouching, restored photos, product shots, interiors, voiceovers — pick a tool, drop in a picture and watch the result develop.",
   openGraph: {
-    siteName: "Framique",
+    siteName: "Celunio",
     type: "website",
     images: ["/covers/preset-golden-hour.webp"],
   },

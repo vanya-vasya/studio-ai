@@ -76,10 +76,10 @@ export default async function CheckoutPage(props: {
             Your {pack.name} order is saved. Card payments are being switched
             on — until then, write to{" "}
             <a
-              href="mailto:support@framique.com"
+              href="mailto:support@celunio.com"
               className="text-purple-300 underline underline-offset-4"
             >
-              support@framique.com
+              support@celunio.com
             </a>{" "}
             and we will top up your balance manually within a few hours.
           </p>

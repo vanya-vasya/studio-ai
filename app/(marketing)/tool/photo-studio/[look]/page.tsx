@@ -16,7 +16,7 @@ export const generateMetadata = async (props: {
   if (!look) return {};
   return {
     title: `${look.name} — ${look.tagline}`,
-    description: `${look.name}: ${look.tagline}. A Photo Studio look on Framique — 4 frames from one upload.`,
+    description: `${look.name}: ${look.tagline}. A Photo Studio look on Celunio — 4 frames from one upload.`,
     openGraph: { images: [look.previewImage] },
   };
 };

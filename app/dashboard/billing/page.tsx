@@ -33,10 +33,10 @@ export default async function BillingPage() {
         <p className="text-sm leading-relaxed text-amber-100/90">
           Card payments are being switched on. Until then, write to{" "}
           <a
-            href="mailto:support@framique.com"
+            href="mailto:support@celunio.com"
             className="font-medium underline underline-offset-4"
           >
-            support@framique.com
+            support@celunio.com
           </a>{" "}
           and we will top up your balance manually.
         </p>

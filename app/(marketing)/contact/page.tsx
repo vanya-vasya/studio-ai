@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Support, billing, abuse reports and legal — support@framique.com.",
+  description: "Support, billing, abuse reports and legal — support@celunio.com.",
 };
 
 const BLOCKS = [
@@ -32,10 +32,10 @@ export default function ContactPage() {
       <p className="mt-4 text-zinc-400">
         Everything goes through{" "}
         <a
-          href="mailto:support@framique.com"
+          href="mailto:support@celunio.com"
           className="text-purple-300 underline-offset-4 hover:underline"
         >
-          support@framique.com
+          support@celunio.com
         </a>{" "}
         and is answered within two business days.
       </p>
@@ -45,10 +45,10 @@ export default function ContactPage() {
             <h2 className="font-semibold text-white">{block.title}</h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">{block.body}</p>
             <a
-              href="mailto:support@framique.com"
+              href="mailto:support@celunio.com"
               className="mt-4 inline-block text-sm text-purple-300 underline-offset-4 hover:underline"
             >
-              support@framique.com
+              support@celunio.com
             </a>
           </div>
         ))}

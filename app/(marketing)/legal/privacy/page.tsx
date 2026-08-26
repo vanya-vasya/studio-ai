@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         {
           heading: "How results are stored",
           body: [
-            "Generated files live in our database behind unguessable links so your result pages keep working. Delete requests via support@framique.com are honoured within 30 days.",
+            "Generated files live in our database behind unguessable links so your result pages keep working. Delete requests via support@celunio.com are honoured within 30 days.",
           ],
         },
         {
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
         {
           heading: "Your rights",
           body: [
-            "You can request a copy or deletion of your data at any time: support@framique.com.",
+            "You can request a copy or deletion of your data at any time: support@celunio.com.",
           ],
         },
       ]}

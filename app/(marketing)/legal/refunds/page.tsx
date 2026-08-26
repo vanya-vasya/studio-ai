@@ -23,7 +23,7 @@ export default function RefundsPage() {
         {
           heading: "Duplicates",
           body: [
-            "Accidental duplicate purchases are always refunded in full — just write to support@framique.com.",
+            "Accidental duplicate purchases are always refunded in full — just write to support@celunio.com.",
           ],
         },
         {

@@ -16,7 +16,7 @@ export const generateMetadata = async (props: {
   if (!tool) return {};
   return {
     title: `${tool.name} — ${tool.tagline}`,
-    description: `${tool.tagline}. ${tool.price} credits per run on Framique.`,
+    description: `${tool.tagline}. ${tool.price} credits per run on Celunio.`,
     openGraph: { images: [tool.cover] },
   };
 };

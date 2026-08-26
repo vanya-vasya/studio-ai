@@ -74,7 +74,7 @@ export const SiteFooter = () => (
         ))}
       </div>
       <p className="mt-12 border-t border-white/5 pt-6 text-xs text-zinc-600">
-        © 2026 Framique. All rights reserved.
+        © 2026 Celunio. All rights reserved.
       </p>
     </div>
   </footer>

@@ -11,7 +11,7 @@ export default function TermsPage() {
         {
           heading: "1. The service",
           body: [
-            "Framique is an AI generation studio: you upload images, audio or text, pick a tool, and OpenAI models produce new images, text or audio in return. You must be at least 16 years old to use the service.",
+            "Celunio is an AI generation studio: you upload images, audio or text, pick a tool, and OpenAI models produce new images, text or audio in return. You must be at least 16 years old to use the service.",
           ],
         },
         {
@@ -42,7 +42,7 @@ export default function TermsPage() {
         },
         {
           heading: "6. Contact",
-          body: ["Questions about these terms: support@framique.com."],
+          body: ["Questions about these terms: support@celunio.com."],
         },
       ]}
     />

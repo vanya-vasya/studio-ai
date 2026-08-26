@@ -9,7 +9,7 @@ import { getTool } from "@/lib/registry";
 export const metadata: Metadata = {
   title: "Inspiration",
   description:
-    "Frames made in the Framique studio. Every tile links to the tool and look behind it.",
+    "Frames made in the Celunio studio. Every tile links to the tool and look behind it.",
 };
 
 export const dynamic = "force-dynamic";

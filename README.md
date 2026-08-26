@@ -1,4 +1,4 @@
-# Framique — AI photo studio
+# Celunio — AI photo studio
 
 23 narrow AI tools (headshots, restoration, product shots, interiors, voiceover, transcription…) on a single shared engine. Users pay per run with prepaid credits, watch results develop live, and get a downloadable file plus a public share link.
 
