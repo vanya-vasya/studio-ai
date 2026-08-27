@@ -42,7 +42,20 @@ export const provisionUser = async (params: {
   }
 
   const [existing] = await db.select().from(users).where(eq(users.id, params.id));
-  return existing;
+  if (existing) return existing;
+
+  // The insert conflicted on the email unique index, not the primary key:
+  // the Clerk account was deleted and re-created with the same address, so
+  // the row lives under the old Clerk id. The address is verified by Clerk,
+  // so it is the same owner — reuse that row (the app keys everything off
+  // the row id) instead of returning undefined and breaking ensureUser.
+  const [sameEmail] = await db
+    .select()
+    .from(users)
+    .where(eq(users.email, params.email));
+  if (sameEmail) return sameEmail;
+
+  throw new Error(`Failed to provision user ${params.id} (${params.email})`);
 };
 
 /**

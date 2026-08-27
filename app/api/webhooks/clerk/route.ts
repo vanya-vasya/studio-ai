@@ -32,7 +32,8 @@ export async function POST(req: NextRequest) {
     type?: string;
     data?: {
       id?: string;
-      email_addresses?: { email_address: string }[];
+      email_addresses?: { id: string; email_address: string }[];
+      primary_email_address_id?: string | null;
       first_name?: string | null;
       last_name?: string | null;
     };
@@ -44,7 +45,10 @@ export async function POST(req: NextRequest) {
   }
 
   if (event.type === "user.created" && event.data?.id) {
-    const email = event.data.email_addresses?.[0]?.email_address;
+    const addresses = event.data.email_addresses ?? [];
+    const email =
+      addresses.find((item) => item.id === event.data?.primary_email_address_id)
+        ?.email_address ?? addresses[0]?.email_address;
     if (email) {
       await provisionUser({
         id: event.data.id,
